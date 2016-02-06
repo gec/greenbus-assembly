@@ -1,0 +1,35 @@
+{
+  "delay" : 2000,
+  "measurements" : [
+    {
+      "name": "MGSite.RoofPV.kW_cap",
+      "measurementType" : "DOUBLE",
+      "changeProbability" : 1.0,
+      "analogConfig" : {
+        "initialValue" : 200.0,
+        "min" : 199.0,
+        "max" : 201.0,
+        "maxDelta" : 0.0
+      }
+    },
+    {
+      "name": "MGSite.RoofPV.kW_tot",
+      "measurementType" : "DOUBLE",
+      "changeProbability" : 0.5,
+      "analogConfig" : {
+        "initialValue" : 100.0,
+        "min" : 0.0,
+        "max" : 200.0,
+        "maxDelta" : 1.0
+      }
+    },
+    {
+      "name": "MGSite.RoofPV.Status",
+      "measurementType" : "BOOL",
+      "changeProbability" : 0.1,
+      "statusConfig" : {
+        "initialValue" : true
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<events xmlns="events.xml.ldr.greenbus.io">
+    <eventConfigs>
+        <!-- Built in event configuration -->
+        <eventConfig eventType="Scada.CommEndpointDisabled" severity="3" designation="EVENT" initialAlarmState="UNACK_SILENT">Endpoint {name} disabled</eventConfig>
+        <eventConfig eventType="Scada.CommEndpointEnabled" severity="3" designation="EVENT" initialAlarmState="UNACK_SILENT">Endpoint {name} enabled</eventConfig>
+        <eventConfig eventType="Scada.CommEndpointOffline" severity="2" designation="EVENT" initialAlarmState="UNACK_SILENT">Endpoint {name} offline</eventConfig>
+        <eventConfig eventType="Scada.CommEndpointOnline" severity="2" designation="EVENT" initialAlarmState="UNACK_SILENT">Endpoint {name} online</eventConfig>
+        <eventConfig eventType="Scada.ControlExe" severity="3" designation="EVENT" initialAlarmState="UNACK_SILENT">Executed control {command}</eventConfig>
+        <eventConfig eventType="Scada.OutOfNominal" severity="2" designation="ALARM" initialAlarmState="UNACK_SILENT">Measurement not in nominal range: {value}</eventConfig>
+        <eventConfig eventType="Scada.OutOfReasonable" severity="2" designation="ALARM" initialAlarmState="UNACK_SILENT">Measurement not reasonable: {value}</eventConfig>
+        <eventConfig eventType="Scada.RemoveNotInService" severity="3" designation="EVENT" initialAlarmState="UNACK_SILENT">Returned point to service</eventConfig>
+        <eventConfig eventType="Scada.RemoveOverride" severity="3" designation="EVENT" initialAlarmState="UNACK_SILENT">Removed override on point</eventConfig>
+        <eventConfig eventType="Scada.SetNotInService" severity="3" designation="EVENT" initialAlarmState="UNACK_SILENT">Point removed from service</eventConfig>
+        <eventConfig eventType="Scada.SetOverride" severity="3" designation="EVENT" initialAlarmState="UNACK_SILENT">Point overridden</eventConfig>
+        <eventConfig eventType="Scada.UpdatedSetpoint" severity="3" designation="EVENT" initialAlarmState="UNACK_SILENT">Updated setpoint {command} to {value}</eventConfig>
+        <eventConfig eventType="System.UserLogin" severity="5" designation="EVENT" initialAlarmState="UNACK_SILENT">User logged in: {user}</eventConfig>
+        <eventConfig eventType="System.UserLoginFailure" severity="1" designation="ALARM" initialAlarmState="UNACK_SILENT">User login failed {reason}</eventConfig>
+        <eventConfig eventType="System.UserLogout" severity="5" designation="EVENT" initialAlarmState="UNACK_SILENT">User logged out</eventConfig>
+
+        <!-- Custom event configuration -->
+        <eventConfig eventType="Custom.Event" severity="3" designation="EVENT">Value of attribute named 'attr': {attr}</eventConfig>
+        <eventConfig eventType="Custom.AudibleAlarm" severity="2" designation="ALARM" initialAlarmState="UNACK_AUDIBLE">Creating an audible alarm!</eventConfig>
+        <eventConfig eventType="Custom.SilentAlarm" severity="2" designation="ALARM" initialAlarmState="UNACK_SILENT">Creating a silent alarm!</eventConfig>
+    </eventConfigs>
+</events>

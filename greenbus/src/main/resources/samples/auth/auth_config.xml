@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<authorization xmlns="auth.xml.ldr.greenbus.io">
+    <permissionSets>
+        <permissionSet name="password_updatable">
+            <allow>
+                <action name="update"/>
+                <resource name="agent_password"/>
+                <selector style="self"/>
+            </allow>
+        </permissionSet>
+        <permissionSet name="all">
+            <allow>
+                <action name="*"/>
+                <resource name="*"/>
+                <selector style="*"/>
+            </allow>
+        </permissionSet>
+        <permissionSet name="command_creator">
+            <allow>
+                <action name="create"/>
+                <resource name="command_lock"/>
+                <resource name="command_lock_select"/>
+                <resource name="command_lock_block"/>
+                <resource name="user_command_request"/>
+                <selector style="self"/>
+            </allow>
+        </permissionSet>
+        <permissionSet name="command_issuer">
+            <allow>
+                <action name="update"/>
+                <action name="delete"/>
+                <resource name="command_lock"/>
+                <selector style="self"/>
+            </allow>
+        </permissionSet>
+        <permissionSet name="system_viewer">
+            <allow>
+                <action name="read"/>
+                <resource name="*"/>
+                <selector style="*"/>
+            </allow>
+        </permissionSet>
+        <permissionSet name="comms_engineer">
+            <allow>
+                <action name="read"/>
+                <action name="update"/>
+                <resource name="endpoint_connection"/>
+                <resource name="endpoint_enabled"/>
+                <selector style="*"/>
+            </allow>
+        </permissionSet>
+        <permissionSet name="protocol_adapter">
+            <allow>
+                <action name="read"/>
+                <action name="update"/>
+                <resource name="endpoint_connection"/>
+                <resource name="endpoint_state"/>
+                <resource name="comm_channel"/>
+                <selector style="*"/>
+            </allow>
+            <allow>
+                <action name="create"/>
+                <action name="update"/>
+                <resource name="front_end_processor"/>
+                <selector style="*"/>
+            </allow>
+        </permissionSet>
+        <permissionSet name="user_role">
+            <allow>
+                <action name="update"/>
+                <resource name="agent_password"/>
+                <selector style="self"/>
+            </allow>
+            <allow>
+                <action name="read"/>
+                <resource name="agent"/>
+                <resource name="auth_token"/>
+                <resource name="agent_permissions"/>
+                <selector style="self"/>
+            </allow>
+            <allow>
+                <action name="read"/>
+                <action name="delete"/>
+                <resource name="auth_token"/>
+                <selector style="self"/>
+            </allow>
+        </permissionSet>
+        <permissionSet name="application">
+            <allow>
+                <action name="create"/>
+                <resource name="application_config"/>
+                <selector style="*"/>
+            </allow>
+            <allow>
+                <action name="update"/>
+                <action name="delete"/>
+                <action name="read"/>
+                <resource name="application_config"/>
+                <resource name="entity"/>
+                <selector style="self"/>
+            </allow>
+            <allow>
+                <action name="update"/>
+                <action name="read"/>
+                <resource name="status_snapshot"/>
+                <selector style="self"/>
+            </allow>
+        </permissionSet>
+        <permissionSet name="user_setup">
+            <allow>
+                <action name="*"/>
+                <resource name="agent"/>
+                <resource name="permission_set"/>
+                <resource name="agent_password"/>
+                <resource name="agent_permissions"/>
+                <selector style="*"/>
+            </allow>
+        </permissionSet>
+        <permissionSet name="read_only">
+            <allow>
+                <action name="read"/>
+                <action name="delete"/>
+                <resource name="auth_token"/>
+                <selector style="self"/>
+            </allow>
+            <deny>
+                <action name="read"/>
+                <action name="delete"/>
+                <resource name="auth_token"/>
+                <selector style="*"/>
+            </deny>
+            <allow>
+                <action name="read"/>
+                <resource name="*"/>
+                <selector style="*"/>
+            </allow>
+        </permissionSet>
+    </permissionSets>
+    <agents>
+        <agent name="remote_application">
+            <permissionSet name="application"/>
+        </agent>
+        <agent name="operator">
+            <permissionSet name="command_creator"/>
+            <permissionSet name="command_issuer"/>
+            <permissionSet name="user_role"/>
+            <permissionSet name="system_viewer"/>
+        </agent>
+        <agent name="fep_application">
+            <permissionSet name="application"/>
+            <permissionSet name="protocol_adapter"/>
+        </agent>
+        <agent name="guest">
+            <permissionSet name="read_only"/>
+        </agent>
+        <agent name="user">
+            <permissionSet name="read_only"/>
+            <permissionSet name="user_role"/>
+        </agent>
+        <agent name="user_admin">
+            <permissionSet name="user_setup"/>
+            <permissionSet name="user_role"/>
+        </agent>
+        <agent name="scada">
+            <permissionSet name="comms_engineer"/>
+            <permissionSet name="user_role"/>
+            <permissionSet name="system_viewer"/>
+        </agent>
+        <agent name="system">
+            <permissionSet name="all"/>
+        </agent>
+        <agent name="services">
+            <permissionSet name="all"/>
+        </agent>
+        <agent name="slave_protocol_adapter">
+            <permissionSet name="application"/>
+            <permissionSet name="protocol_adapter"/>
+            <permissionSet name="user_role"/>
+            <permissionSet name="system_viewer"/>
+        </agent>
+        <agent name="core_application">
+            <permissionSet name="all"/>
+        </agent>
+        <agent name="hmi_app">
+            <permissionSet name="application"/>
+            <permissionSet name="user_role"/>
+            <permissionSet name="system_viewer"/>
+        </agent>
+        <agent name="admin">
+            <permissionSet name="all"/>
+        </agent>
+        <agent name="master_protocol_adapter">
+            <permissionSet name="application"/>
+            <permissionSet name="protocol_adapter"/>
+            <permissionSet name="user_role"/>
+            <permissionSet name="system_viewer"/>
+        </agent>
+    </agents>
+</authorization>

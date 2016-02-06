@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DNPMasterEndpoint xmlns:dnp3="APLXML.DNP" xmlns:apl="APLXML.Base" xmlns="io.greenbus.dnp3">
+    <dnp3:Master>
+        <dnp3:Stack>
+            <dnp3:LinkLayer RemoteBuffFullTimeoutMS="0" NumRetries="3" AckTimeoutMS="1000" UseConfirmations="false" RemoteAddress="1" LocalAddress="100" IsMaster="true"/>
+            <dnp3:AppLayer NumRetries="0" MaxFragSize="2048" TimeoutMS="5000"/>
+        </dnp3:Stack>
+        <dnp3:MasterSettings IntegrityPeriodMS="300000" TaskRetryMS="5000" AllowTimeSync="true"/>
+        <dnp3:ScanList>
+          <dnp3:ExceptionScan PeriodMS="2000" Class3="true" Class2="true" Class1="true"/>
+        </dnp3:ScanList>
+        <dnp3:Unsol Class3="true" Class2="true" Class1="true" Enable="false" DoTask="false"/>
+    </dnp3:Master>
+    <apl:TCPClient Address="192.168.100.30" Port="8001"/>
+    <apl:Log Filter="LOG_INFO"/>
+    <IndexMapping>
+        <Binaries>
+            <Mapping index="0" name="MGSite.PCC_cbr_cust.Status"/>
+        </Binaries>
+        <Analogs>
+            <Mapping index="0" name="MGSite.PCC_cbr_cust.kV" />
+            <Mapping index="1" name="MGSite.PCC_cbr_cust.Amps" />
+            <Mapping index="2" name="MGSite.PCC_cbr_cust.PwrFact" />
+            <Mapping index="3" name="MGSite.PCC_cbr_cust.Hz" />
+        </Analogs>
+        <Controls>
+            <Mapping index="0" name="MGSite.PCC_cbr_cust.Trip">
+                <ControlOptions type="PULSE_CLOSE" onTime="1000" offTime="1000" count="1"/>
+            </Mapping>
+            <Mapping index="1" name="MGSite.PCC_cbr_cust.Close">
+                <ControlOptions type="PULSE_CLOSE" onTime="1000" offTime="1000" count="1"/>
+            </Mapping>
+        </Controls>
+        <!--<Setpoints>
+            <Mapping index="0" name="greenbus_name" />
+        </Setpoints>-->
+    </IndexMapping>
+</DNPMasterEndpoint>

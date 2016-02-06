@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="xml.ldr.greenbus.io">
+    <equipmentModel>
+        <equipment name="MGSite">
+            <type name="Root"/>
+            <type name="EquipmentGroup"/>
+            <type name="MicroGrid"/>
+
+            <equipment name="MGSite.RoofPV">
+                <type name="Equipment"/>
+                <type name="Generation"/>
+                <type name="PV"/>
+                <analog name="MGSite.RoofPV.%_cap" unit="percent">
+                    <type name="Point"/>
+                    <type name="PercentCapacity"/>
+                    <triggers>
+                        <filter>
+                            <suppress activation="LOW"/>
+                        </filter>
+                    </triggers>
+                    <calculation>
+                        <inputs inputQualityStrategy="ONLY_WHEN_ALL_OK">
+                            <single pointName="MGSite.RoofPV.kW_tot" variable="A"/>
+                            <single pointName="MGSite.RoofPV.kW_cap" variable="B"/>
+                        </inputs>
+                        <triggering updateOnAnyChange="true"/>
+                        <formula>A / B * 100</formula>
+                        <output outputQualityStrategy="WORST_QUALITY"/>
+                    </calculation>
+                </analog>
+                <analog name="MGSite.RoofPV.kW_cap" unit="kW">
+                    <type name="Point"/>
+                    <type name="PowerCapacity"/>
+                    <triggers>
+                        <filter>
+                            <suppress activation="LOW"/>
+                        </filter>
+                    </triggers>
+                </analog>
+                <analog name="MGSite.RoofPV.kW_tot" unit="kW">
+                    <type name="Point"/>
+                    <type name="OutputPower"/>
+                    <triggers>
+                        <filter>
+                            <suppress activation="LOW"/>
+                        </filter>
+                    </triggers>
+                </analog>
+                <status name="MGSite.RoofPV.Status" unit="status">
+                    <type name="PVStatus"/>
+                    <type name="Point"/>
+                    <commands>
+                        <reference name="MGSite.RoofPV.Trip"/>
+                        <reference name="MGSite.RoofPV.Close"/>
+                    </commands>
+                    <triggers>
+                        <filter>
+                            <suppress activation="LOW"/>
+                        </filter>
+                        <matchValue booleanValue="false">
+                            <event activation="RISING" eventType="BreakerOpened"/>
+                        </matchValue>
+                        <always>
+                            <boolMapping activation="HIGH" falseString="OPEN" trueString="CLOSED"/>
+                        </always>
+                    </triggers>
+                </status>
+                <control name="MGSite.RoofPV.Disable" displayName="Disable">
+                    <type name="Command"/>
+                    <type name="BreakerTrip"/>
+                </control>
+                <control name="MGSite.RoofPV.Enable" displayName="Enable">
+                    <type name="Command"/>
+                    <type name="BreakerClose"/>
+                </control>
+            </equipment>
+
+            <equipment name="MGSite.PCC_cbr_cust">
+                <type name="Equipment"/>
+                <type name="CustomerBreaker"/>
+                <type name="PCC"/>
+
+                <status name="MGSite.PCC_cbr_cust.Status" unit="status">
+                    <type name="Point"/>
+                    <type name="BreakerStatus"/>
+                    <commands>
+                        <reference name="MGSite.PCC_cbr_cust.Trip"/>
+                        <reference name="MGSite.PCC_cbr_cust.Close"/>
+                    </commands>
+                    <triggers>
+                        <filter>
+                            <suppress activation="LOW"/>
+                        </filter>
+                        <matchValue booleanValue="false">
+                            <event activation="RISING" eventType="BreakerOpened"/>
+                        </matchValue>
+                        <always>
+                            <boolMapping activation="HIGH" falseString="OPEN" trueString="CLOSED"/>
+                        </always>
+                    </triggers>
+                </status>
+                <control name="MGSite.PCC_cbr_cust.Trip" displayName="Trip">
+                    <type name="Command"/>
+                    <type name="BreakerTrip"/>
+                </control>
+                <control name="MGSite.PCC_cbr_cust.Close" displayName="Close">
+                    <type name="Command"/>
+                    <type name="BreakerClose"/>
+                </control>
+                <analog name="MGSite.PCC_cbr_cust.kW" unit="kW">
+                    <type name="Point"/>
+                    <type name="DemandPower"/>
+                    <triggers>
+                        <filter>
+                            <suppress activation="LOW"/>
+                        </filter>
+                    </triggers>
+                </analog>
+                <analog name="MGSite.PCC_cbr_cust.kV" unit="kV">
+                    <type name="Point"/>
+                    <type name="PCCVoltage"/>
+                    <triggers>
+                        <filter>
+                            <suppress activation="LOW"/>
+                        </filter>
+                    </triggers>
+                </analog>
+                <analog name="MGSite.PCC_cbr_cust.Amps" unit="A">
+                    <type name="Point"/>
+                    <type name="PCCCurrent"/>
+                    <triggers>
+                        <filter>
+                            <suppress activation="LOW"/>
+                        </filter>
+                    </triggers>
+                </analog>
+                <analog name="MGSite.PCC_cbr_cust.PwrFact" unit="PwrFact">
+                    <type name="Point"/>
+                    <type name="PowerFactor"/>
+                    <triggers>
+                        <filter>
+                            <suppress activation="LOW"/>
+                        </filter>
+                    </triggers>
+                </analog>
+                <analog name="MGSite.PCC_cbr_cust.Hz" unit="Hz">
+                    <type name="Point"/>
+                    <type name="Frequency"/>
+                    <type name="FreqSource"/>
+                    <triggers>
+                        <filter>
+                            <suppress activation="LOW"/>
+                        </filter>
+                    </triggers>
+                </analog>
+            </equipment>
+
+        </equipment>
+    </equipmentModel>
+    <endpointModel>
+
+        <endpoint name="Simulated_PV" protocol="simulator">
+            <type name="Endpoint" />
+
+            <keyValue key="protocolConfig" fileName="comms/sim_config.json"/>
+
+            <source name="MGSite.RoofPV.kW_cap"/>
+            <source name="MGSite.RoofPV.kW_tot"/>
+            <source name="MGSite.RoofPV.Status"/>
+
+            <source name="MGSite.RoofPV.Disable"/>
+            <source name="MGSite.RoofPV.Enable"/>
+
+        </endpoint>
+
+        <endpoint name="PCC_DNP3" protocol="dnp3">
+            <type name="Endpoint" />
+
+            <keyValue key="protocolConfig" fileName="comms/pcc_dnp3.xml"/>
+
+            <source name="MGSite.PCC_cbr_cust.Status"/>
+            <source name="MGSite.PCC_cbr_cust.kW"/>
+            <source name="MGSite.PCC_cbr_cust.kV"/>
+            <source name="MGSite.PCC_cbr_cust.Amps"/>
+            <source name="MGSite.PCC_cbr_cust.PwrFact"/>
+            <source name="MGSite.PCC_cbr_cust.Hz"/>
+
+            <source name="MGSite.PCC_cbr_cust.Trip"/>
+            <source name="MGSite.PCC_cbr_cust.Close"/>
+        </endpoint>
+
+        <endpoint name="Calculations" protocol="calculator">
+            <type name="Endpoint" />
+
+            <source name="MGSite.RoofPV.%_cap"/>
+        </endpoint>
+    </endpointModel>
+</configuration>

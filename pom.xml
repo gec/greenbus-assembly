@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.greenbus.assembly</groupId>
+    <artifactId>greenbus-assembly</artifactId>
+    <version>3.0.0</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <maven-assembly-plugin.version>2.2.2</maven-assembly-plugin.version>
+    </properties>
+
+    <modules>
+        <module>greenbus</module>
+    </modules>
+
+
+
+    <repositories>
+        <repository>
+            <id>totalgrid-release</id>
+            <name>https://repo.totalgrid.org-releases</name>
+            <url>https://repo.totalgrid.org/artifactory/totalgrid-release</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>totalgrid-private-release</id>
+            <name>https://repo.totalgrid.org-releases</name>
+            <url>https://repo.totalgrid.org/artifactory/totalgrid-private-release</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>totalgrid-private-snapshot</id>
+            <name>https://repo.totalgrid.org-snapshots</name>
+            <url>https://repo.totalgrid.org/artifactory/totalgrid-private-snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+</project>

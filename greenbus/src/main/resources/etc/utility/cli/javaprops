@@ -1,0 +1,2 @@
+-Djline.terminal=jline.UnixTerminal
+-Dio.greenbus.config.base=etc/
