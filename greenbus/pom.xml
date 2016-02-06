@@ -6,13 +6,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.greenbus</groupId>
     <artifactId>greenbus</artifactId>
-    <version>3.0.0</version>
+    <version>3.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <parent>
         <groupId>io.greenbus.assembly</groupId>
         <artifactId>greenbus-assembly</artifactId>
-        <version>3.0.0</version>
+        <version>3.0.1-SNAPSHOT</version>
         <relativePath>../</relativePath>
     </parent>
 
@@ -64,73 +64,73 @@
                     <targets>
                         <param>
                             <rootArtifact>
-                                io.greenbus:greenbus-services:3.0.0
+                                io.greenbus:greenbus-services:3.0.1-SNAPSHOT
                             </rootArtifact>
                             <outputFile>lib/service/services/jarlist</outputFile>
                         </param>
                         <param>
                             <rootArtifact>
-                                io.greenbus:greenbus-processing:3.0.0
+                                io.greenbus:greenbus-processing:3.0.1-SNAPSHOT
                             </rootArtifact>
                             <outputFile>lib/service/processing/jarlist</outputFile>
                         </param>
                         <param>
                             <rootArtifact>
-                                io.greenbus:greenbus-simulator:3.0.0
+                                io.greenbus:greenbus-simulator:3.0.1-SNAPSHOT
                             </rootArtifact>
                             <outputFile>lib/service/simulator/jarlist</outputFile>
                         </param>
                         <param>
                             <rootArtifact>
-                                io.greenbus:greenbus-calculation:3.0.0
+                                io.greenbus:greenbus-calculation:3.0.1-SNAPSHOT
                             </rootArtifact>
                             <outputFile>lib/service/calculation/jarlist</outputFile>
                         </param>
                         <param>
                             <rootArtifact>
-                                io.greenbus:greenbus-cli:3.0.0
+                                io.greenbus:greenbus-cli:3.0.1-SNAPSHOT
                             </rootArtifact>
                             <outputFile>lib/utility/cli/jarlist</outputFile>
                         </param>
                         <param>
                             <rootArtifact>
-                                io.greenbus:greenbus-loader-xml:3.0.0
+                                io.greenbus:greenbus-loader-xml:3.0.1-SNAPSHOT
                             </rootArtifact>
                             <outputFile>lib/utility/export/jarlist</outputFile>
                         </param>
                         <param>
                             <rootArtifact>
-                                io.greenbus:greenbus-loader-xml:3.0.0
+                                io.greenbus:greenbus-loader-xml:3.0.1-SNAPSHOT
                             </rootArtifact>
                             <outputFile>lib/utility/import/jarlist</outputFile>
                         </param>
                         <param>
                             <rootArtifact>
-                                io.greenbus:greenbus-loader-xml:3.0.0
+                                io.greenbus:greenbus-loader-xml:3.0.1-SNAPSHOT
                             </rootArtifact>
                             <outputFile>lib/utility/auth-export/jarlist</outputFile>
                         </param>
                         <param>
                             <rootArtifact>
-                                io.greenbus:greenbus-loader-xml:3.0.0
+                                io.greenbus:greenbus-loader-xml:3.0.1-SNAPSHOT
                             </rootArtifact>
                             <outputFile>lib/utility/auth-import/jarlist</outputFile>
                         </param>
                         <param>
                             <rootArtifact>
-                                io.greenbus:greenbus-loader-xml:3.0.0
+                                io.greenbus:greenbus-loader-xml:3.0.1-SNAPSHOT
                             </rootArtifact>
                             <outputFile>lib/utility/event-export/jarlist</outputFile>
                         </param>
                         <param>
                             <rootArtifact>
-                                io.greenbus:greenbus-loader-xml:3.0.0
+                                io.greenbus:greenbus-loader-xml:3.0.1-SNAPSHOT
                             </rootArtifact>
                             <outputFile>lib/utility/event-import/jarlist</outputFile>
                         </param>
                         <param>
                             <rootArtifact>
-                                io.greenbus:greenbus-services:3.0.0
+                                io.greenbus:greenbus-services:3.0.1-SNAPSHOT
                             </rootArtifact>
                             <outputFile>lib/utility/resetdb/jarlist</outputFile>
                         </param>
@@ -227,7 +227,7 @@
         <dependency>
             <groupId>io.greenbus</groupId>
             <artifactId>greenbus-services</artifactId>
-            <version>3.0.0</version>
+            <version>3.0.1-SNAPSHOT</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
@@ -238,7 +238,7 @@
         <dependency>
             <groupId>io.greenbus</groupId>
             <artifactId>greenbus-cli</artifactId>
-            <version>3.0.0</version>
+            <version>3.0.1-SNAPSHOT</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
@@ -249,7 +249,7 @@
         <dependency>
             <groupId>io.greenbus</groupId>
             <artifactId>greenbus-loader-xml</artifactId>
-            <version>3.0.0</version>
+            <version>3.0.1-SNAPSHOT</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
@@ -260,7 +260,7 @@
         <dependency>
             <groupId>io.greenbus</groupId>
             <artifactId>greenbus-processing</artifactId>
-            <version>3.0.0</version>
+            <version>3.0.1-SNAPSHOT</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
@@ -271,7 +271,7 @@
         <dependency>
             <groupId>io.greenbus</groupId>
             <artifactId>greenbus-calculation</artifactId>
-            <version>3.0.0</version>
+            <version>3.0.1-SNAPSHOT</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
@@ -282,7 +282,7 @@
         <dependency>
             <groupId>io.greenbus</groupId>
             <artifactId>greenbus-simulator</artifactId>
-            <version>3.0.0</version>
+            <version>3.0.1-SNAPSHOT</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
