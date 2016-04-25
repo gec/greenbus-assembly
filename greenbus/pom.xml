@@ -134,6 +134,18 @@
                             </rootArtifact>
                             <outputFile>lib/utility/resetdb/jarlist</outputFile>
                         </param>
+                        <param>
+                            <rootArtifact>
+                                io.greenbus:greenbus-services:3.0.1-SNAPSHOT
+                            </rootArtifact>
+                            <outputFile>lib/utility/trim-events/jarlist</outputFile>
+                        </param>
+                        <param>
+                            <rootArtifact>
+                                io.greenbus:greenbus-services:3.0.1-SNAPSHOT
+                            </rootArtifact>
+                            <outputFile>lib/utility/trim-measurements/jarlist</outputFile>
+                        </param>
                     </targets>
                 </configuration>
             </plugin>
