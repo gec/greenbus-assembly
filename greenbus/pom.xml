@@ -146,6 +146,12 @@
                             </rootArtifact>
                             <outputFile>lib/utility/trim-measurements/jarlist</outputFile>
                         </param>
+                        <param>
+                            <rootArtifact>
+                                io.greenbus:greenbus-mstore-sql:3.0.1-SNAPSHOT
+                            </rootArtifact>
+                            <outputFile>lib/utility/history-db/jarlist</outputFile>
+                        </param>
                     </targets>
                 </configuration>
             </plugin>
