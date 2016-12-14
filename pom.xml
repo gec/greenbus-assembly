@@ -28,18 +28,29 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
+
         <repository>
-            <id>totalgrid-private-release</id>
+            <id>totalgrid-snapshot</id>
+            <name>https://repo.totalgrid.org-snapshots</name>
+            <url>https://repo.totalgrid.org/artifactory/totalgrid-snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>third-party-release</id>
             <name>https://repo.totalgrid.org-releases</name>
-            <url>https://repo.totalgrid.org/artifactory/totalgrid-private-release</url>
+            <url>https://repo.totalgrid.org/artifactory/third-party-release</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
         </repository>
+
         <repository>
-            <id>totalgrid-private-snapshot</id>
+            <id>third-party-snapshot</id>
             <name>https://repo.totalgrid.org-snapshots</name>
-            <url>https://repo.totalgrid.org/artifactory/totalgrid-private-snapshot</url>
+            <url>https://repo.totalgrid.org/artifactory/third-party-snapshot</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
